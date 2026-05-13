@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Noor Bridal Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:#120000;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      width:100%;
+      padding:20px 8%;
+      position:fixed;
+      top:0;
+      left:0;
+      z-index:999;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      background:rgba(0,0,0,0.5);
+      backdrop-filter:blur(10px);
+    }
+
+    .logo{
+      font-size:32px;
+      font-family:'Playfair Display',serif;
+      color:#d4af37;
+      font-weight:700;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:30px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-size:15px;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#d4af37;
+    }
+
+    /* HERO */
+
+    .hero{
+      height:100vh;
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .hero video{
+      position:absolute;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      top:0;
+      left:0;
+      z-index:-2;
+    }
+
+    .overlay{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.6);
+      z-index:-1;
+    }
+
+    .hero-content{
+      max-width:800px;
+      padding:20px;
+    }
+
+    .hero-content h1{
+      font-size:70px;
+      font-family:'Playfair Display',serif;
+      color:#d4af37;
+      margin-bottom:20px;
+    }
+
+    .hero-content p{
+      font-size:20px;
+      line-height:1.8;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:15px 35px;
+      background:#d4af37;
+      color:#111;
+      text-decoration:none;
+      border-radius:50px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background:white;
+      transform:translateY(-5px);
+    }
+
+    /* COLLECTION */
+
+    .section{
+      padding:100px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:50px;
+      color:#d4af37;
+      font-family:'Playfair Display',serif;
+      margin-bottom:15px;
+    }
+
+    .section-title p{
+      color:#ccc;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#1d0000;
+      border-radius:20px;
+      overflow:hidden;
+      transition:0.4s;
+      border:1px solid rgba(212,175,55,0.2);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+    }
+
+    .card img{
+      width:100%;
+      height:350px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:25px;
+    }
+
+    .card-content h3{
+      color:#d4af37;
+      margin-bottom:10px;
+      font-size:28px;
+      font-family:'Playfair Display',serif;
+    }
+
+    .card-content p{
+      color:#ddd;
+      line-height:1.7;
+      margin-bottom:20px;
+    }
+
+    /* CUSTOM SECTION */
+
+    .custom{
+      background:#240000;
+      text-align:center;
+      border-radius:30px;
+      padding:70px 40px;
+    }
+
+    .custom h2{
+      color:#d4af37;
+      font-size:55px;
+      margin-bottom:20px;
+      font-family:'Playfair Display',serif;
+    }
+
+    .custom p{
+      max-width:800px;
+      margin:auto;
+      line-height:1.8;
+      margin-bottom:30px;
+      color:#ddd;
+    }
+
+    /* TESTIMONIAL */
+
+    .testimonial-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .testimonial{
+      background:#1a0000;
+      padding:30px;
+      border-radius:20px;
+      border:1px solid rgba(212,175,55,0.2);
+    }
+
+    .testimonial h4{
+      color:#d4af37;
+      margin-top:20px;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+      gap:40px;
+      align-items:center;
+    }
+
+    .contact-box{
+      background:#1b0000;
+      padding:40px;
+      border-radius:20px;
+    }
+
+    .contact-box h3{
+      color:#d4af37;
+      margin-bottom:20px;
+      font-size:35px;
+      font-family:'Playfair Display',serif;
+    }
+
+    .contact-box p{
+      margin-bottom:15px;
+      color:#ddd;
+    }
+
+    iframe{
+      width:100%;
+      border:none;
+      border-radius:20px;
+      height:350px;
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp{
+      position:fixed;
+      right:20px;
+      bottom:20px;
+      background:#25d366;
+      color:white;
+      width:65px;
+      height:65px;
+      border-radius:50%;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      font-size:30px;
+      text-decoration:none;
+      z-index:999;
+      box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#090000;
+      text-align:center;
+      padding:30px;
+      color:#aaa;
+      margin-top:80px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+      nav ul{
+        display:none;
+      }
+
+      .hero-content h1{
+        font-size:45px;
+      }
+
+      .hero-content p{
+        font-size:16px;
+      }
+
+      .section-title h2{
+        font-size:38px;
+      }
+
+      .custom h2{
+        font-size:40px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">Noor Bridal Studio</div>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Bridal</a></li>
+      <li><a href="#">Customized</a></li>
+      <li><a href="#">Party Wear</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <video autoplay muted loop playsinline>
+      <source src="https://cdn.coverr.co/videos/coverr-fashion-model-walking-1561540703053?download=1080p" type="video/mp4">
+    </video>
+
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+
+      <h1>Noor Bridal Studio</h1>
+
+      <p>
+        Luxury Bridal & Party Wear Collection
+        <br>
+        Elegant Pakistani Bridal Fashion
+      </p>
+
+      <a
+        class="btn"
+        href="https://wa.me/923314349664?text=Assalamualaikum,%20I%20want%20to%20order%20a%20bridal%20dress."
+        target="_blank"
+      >
+        Order on WhatsApp
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- COLLECTION -->
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>Bridal Collections</h2>
+      <p>Luxury Pakistani bridal designs crafted for your special day</p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="card-content">
+          <h3>Bridal Wear</h3>
+          <p>Traditional and modern bridal dresses with royal elegance.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="card-content">
+          <h3>Mehndi Dresses</h3>
+          <p>Colorful and vibrant mehndi dresses with luxurious embroidery.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=1200&auto=format&fit=crop" alt="">
+        <div class="card-content">
+          <h3>Luxury Pret</h3>
+          <p>Exclusive ready-to-wear luxury fashion for every event.</p>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CUSTOM -->
+
+  <section class="section">
+
+    <div class="custom">
+
+      <h2>Customized Designs</h2>
+
+      <p>
+        Apni marzi ka design banwayen.
+        Noor Bridal Studio offers fully customized bridal and party wear
+        according to your style, event, and dream look.
+      </p>
+
+      <a
+        class="btn"
+        href="https://wa.me/923314349664?text=Assalamualaikum,%20I%20want%20a%20customized%20bridal%20dress."
+        target="_blank"
+      >
+        Customize Now
+      </a>
+
+    </div>
+
+  </section>
+
+  <!-- TESTIMONIALS -->
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>Testimonials</h2>
+      <p>What our beautiful clients say</p>
+    </div>
+
+    <div class="testimonial-container">
+
+      <div class="testimonial">
+        <p>
+          “Beautiful bridal craftsmanship and premium quality.
+          Highly recommended.”
+        </p>
+        <h4>— Ayesha, Lahore</h4>
+      </div>
+
+      <div class="testimonial">
+        <p>
+          “Amazing custom bridal designs and very professional service.”
+        </p>
+        <h4>— Hira, Islamabad</h4>
+      </div>
+
+      <div class="testimonial">
+        <p>
+          “Luxury experience with elegant Pakistani fashion touch.”
+        </p>
+        <h4>— Sana, Karachi</h4>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="section">
+
+    <div class="section-title">
+      <h2>Contact Us</h2>
+      <p>Visit our bridal studio in Lahore</p>
+    </div>
+
+    <div class="contact">
+
+      <div class="contact-box">
+
+        <h3>Noor Bridal Studio</h3>
+
+        <p>📍 Thokar Lahore</p>
+
+        <p>📞 +92 331 434 9664</p>
+
+        <p>💬 WhatsApp Available</p>
+
+        <p>⏰ Mon - Sat | 10 AM - 9 PM</p>
+
+      </div>
+
+      <iframe
+        src="https://maps.google.com/maps?q=thokar%20lahore&t=&z=13&ie=UTF8&iwloc=&output=embed">
+      </iframe>
+
+    </div>
+
+  </section>
+
+  <!-- WHATSAPP -->
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/923314349664?text=Assalamualaikum,%20I%20want%20to%20order%20a%20bridal%20dress."
+    target="_blank"
+  >
+    💬
+  </a>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    © 2026 Noor Bridal Studio — Luxury Bridal Fashion Pakistan
+
+  </footer>
+
+</body>
+</html>
